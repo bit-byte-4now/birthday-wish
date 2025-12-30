@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Happy Birthday ❤️</title>
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;600&family=Playfair+Display:wght@500;600&display=swap" rel="stylesheet">
+
+  <style>
+    body {
+      margin: 0;
+      height: 100vh;
+      background: linear-gradient(135deg, #ffdde1, #ee9ca7);
+      background-size: 200% 200%;
+      animation: bgMove 12s ease infinite;
+      color: #4a1c1c;
+      font-family: 'Dancing Script', cursive;
+    }
+
+    @keyframes bgMove {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    .card {
+      background: rgba(255, 255, 255, 0.88);
+      padding: 28px 26px;
+      border-radius: 20px;
+      max-width: 92%;
+      max-height: 90vh;
+      overflow-y: auto;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+      text-align: center;
+      margin: auto;
+    }
+
+    h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: 30px;
+      margin-bottom: 6px;
+    }
+
+    .subtitle {
+      font-family: 'Playfair Display', serif;
+      font-size: 15px;
+      opacity: 0.75;
+      margin-bottom: 22px;
+    }
+
+    #message {
+      font-family: 'Dancing Script', cursive;
+      font-size: 19px;
+      line-height: 1.85;
+      letter-spacing: 0.3px;
+      white-space: pre-line;
+      text-align: left;
+    }
+
+    .divider {
+      height: 1px;
+      background: linear-gradient(to right, transparent, #d9a5a5, transparent);
+      margin: 24px 0;
+    }
+
+    .closing {
+      text-align: center;
+      font-size: 18px;
+      margin-top: 25px;
+      opacity: 0;
+      transition: opacity 2s ease;
+    }
+
+    .closing.show {
+      opacity: 1;
+    }
+
+    .heart {
+      font-size: 26px;
+      margin-top: 18px;
+      animation: pulse 1.5s infinite;
+    }
+
+    @keyframes pulse {
+      0% { transform: scale(1); }
+      50% { transform: scale(1.15); }
+      100% { transform: scale(1); }
+    }
+
+    /* Start screen overlay */
+    #startScreen {
+      position: fixed;
+      top:0;
+      left:0;
+      width:100%;
+      height:100%;
+      background: rgba(255,255,255,0.95);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      z-index: 1000;
+    }
+
+    #startScreen h2 {
+      font-family:'Playfair Display', serif;
+      font-size: 24px;
+      color: #4a1c1c;
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    #startBtn {
+      padding: 12px 24px;
+      font-size: 18px;
+      font-family:'Dancing Script', cursive;
+      cursor: pointer;
+      border: none;
+      border-radius: 12px;
+      background: #ee9ca7;
+      color: white;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- Start screen -->
+  <div id="startScreen">
+    <h2>Tap anywhere to start</h2>
+    <button id="startBtn">Start</button>
+  </div>
+
+  <!-- Background Music -->
+  <audio id="bgMusic" loop preload="auto">
+    <source src="music.mp3" type="audio/mpeg">
+  </audio>
+
+  <!-- Main card -->
+  <div class="card">
+    <h1>Happy Birthday 💖</h1>
+    <div class="subtitle">Today is special… because you exist</div>
+
+    <div id="message"></div>
+
+    <div class="heart">❤️</div>
+  </div>
+
+  <script>
+    // Music & Start button
+    const music = document.getElementById("bgMusic");
+    const startScreen = document.getElementById("startScreen");
+    const startBtn = document.getElementById("startBtn");
+
+    startBtn.addEventListener("click", () => {
+      music.play();
+      startScreen.style.display = "none"; // hide overlay
+    });
+
+    // Typing effect
+    const firstText = `On this day,
+the world became a little brighter.
+
+Your smile,
+your kindness,
+the way you make moments feel lighter…
+
+I just wanted you to know,
+you matter deeply.
+
+May this year bring you peace,
+dreams that come true,
+and reasons to smile every single day.
+
+Happy Birthday 🌸`;
+
+    const finalText = `Aaj likhte hue,
+mujhe sabse pehle wahi pal yaad aa raha hai
+jab maine pehli baar apna dil tumhare saamne rakha tha.
+Woh moment shayad chhota sa tha,
+par mere liye bahut gehra.
+Us din maine sirf confess nahi kiya,
+maine khud se yeh bhi kaha tha
+ki main kabhi peeche mudke nahi dekhunga.
+
+Beech mein thodi uljhan rahi,
+kuch baatein samajhna mushkil laga,
+kuch cheezein kehna bhi.
+Par jaise jaise humne baithkar
+sab suljhaya,
+mujhe yeh yaqeen aur gehra hota gaya
+ki aage bhi hum kar lenge.
+Dheere dheere, apne tareeke se.
+
+Bebo, tum mere liye
+sirf saath hone ka matlab nahi ho.
+Tum woh sukoon ho
+jo cheezon ko halka bana deta hai.
+Tumhari baatein mujhe sochna sikhaati hain,
+aur tumhara hona
+mujhe thoda behtar banne ka hausla deta hai.
+
+Main poore dil se maanta hoon
+ki jiske paas tum jaisa mentor ho,
+woh apni galtiyon se ghabrata nahi.
+Aur sach kahun,
+galti karke tumhari daant sunna bhi
+ek alag hi tareeke ka pyaar lagta hai.
+Usme fikr hoti hai,
+aur fikr ka matlab hota hai care.
+
+Raaste aasan nahi hain,
+yeh baat hum dono jaante hain.
+Par agar hum saath chal rahe hain,
+toh safar kabhi bekaar nahi ho sakta.
+Ho sakta hai thoda mushkil ho,
+par khubsurat zaroor hoga.
+
+Baaki sab ke liye
+shayad jawab waqt dega,
+par ek baat simple hai —
+main hoon na.
+Hum milke aage badhenge,
+bina jaldi ke,
+bina darr ke.
+
+Aaj tumhara birthday hai,
+aur main bas itna chahta hoon
+ki tum yeh mehsoos karo
+ki tum kitni khaas ho.
+Tumhare aage sirf achha likha hai,
+sirf roshni,
+aur woh sab jo tum deserve karti ho.
+
+Happy Birthday, meri Bebo ✨
+Yeh kuch lafz nahi,
+bas dil ki ek shaant si baat hai.`;
+
+    let index = 0;
+    const speed = 40;
+    const messageElement = document.getElementById("message");
+
+    function typeText(text, callback) {
+      if (index < text.length) {
+        messageElement.innerHTML += text.charAt(index);
+        index++;
+        setTimeout(() => typeText(text, callback), speed);
+      } else {
+        index = 0;
+        if (callback) callback();
+      }
+    }
+
+    function showFinalMessage() {
+      setTimeout(() => {
+        messageElement.innerHTML += `<div class="divider"></div>`;
+        typeText(finalText, showClosing);
+      }, 1200);
+    }
+
+    function showClosing() {
+      const closing = document.createElement("div");
+      closing.className = "closing";
+      closing.innerHTML = "— Always, quietly 🤍";
+      messageElement.appendChild(closing);
+
+      setTimeout(() => {
+        closing.classList.add("show");
+      }, 1200);
+    }
+
+    typeText(firstText, showFinalMessage);
+  </script>
+
+</body>
+</html>
